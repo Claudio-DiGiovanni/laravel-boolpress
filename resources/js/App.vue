@@ -17,18 +17,6 @@ export default {
     NavBar,
     Footer,
   },
-    data() {
-        return {
-            arrPosts: [],
-            arrCategories: [],
-    };
-    },
-  created() {
-    axios.get('/api/posts')
-      .then(response => this.arrPosts = response.data.posts);
-    axios.get('/api/posts')
-      .then(response => this.arrCategories = response.data.categories);
-  }
 }
 </script>
 

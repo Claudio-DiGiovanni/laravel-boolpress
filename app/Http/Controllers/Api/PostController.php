@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(12);
         $categories = Category::all('id', 'name');
 
         return response()->json([
@@ -22,12 +22,20 @@ class PostController extends Controller
         ]);
     }
 
-    public function show($id)
+    public function show(Post $post)
     {
+        $post = Post::where('id', $post->id)->with(['category', 'tags'])->first();
+        return response()->json([
+            'success' => true,
+            'post' => $post,
+        ]);
+    }
+
+    public function random() {
+        $posts = Post::inRandomOrder()->limit(16)->get();
         return response()->json([
             'success' => true,
             'posts' => $posts,
-            'categories' => $categories,
         ]);
     }
 }
