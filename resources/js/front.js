@@ -6,6 +6,7 @@ import App from './App.vue';
 import VueRouter from 'vue-router';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
+import ContactUsPage from './pages/ContactUsPage';
 import PostPage from './pages/PostPage';
 import PostsPage from './pages/PostsPage';
 import Page404 from './pages/Page404';
@@ -22,6 +23,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: AboutPage,
+    },
+    {
+        path: '/contact-us',
+        name: 'contact',
+        component: ContactUsPage,
     },
     {
         path: '/posts',
