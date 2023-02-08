@@ -14,6 +14,7 @@ class LeadController extends Controller
 {
     public function store(Request $request)
     {
+
         $validations = [
             'name' => 'string|required|max:100',
             'email' => 'email|required|max:100',
