@@ -5230,8 +5230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      hasErrors: false,
-      errors: [],
+      errors: null,
       name: '',
       email: '',
       newsletter: true,
@@ -5242,12 +5241,12 @@ __webpack_require__.r(__webpack_exports__);
     resetForm: function resetForm() {
       this.name = '';
       this.email = '';
-      this.newsletter = '';
+      this.newsletter = true;
       this.message = '';
     },
     submitData: function submitData() {
       var _this = this;
-      this.hasErrors = false;
+      this.errors = null;
       axios.post('/api/leads', {
         name: this.name,
         email: this.email,
@@ -5258,7 +5257,6 @@ __webpack_require__.r(__webpack_exports__);
           _this.resetForm();
           console.log(response.data);
         } else {
-          _this.hasErrors = true;
           _this.errors = response.data.errors;
         }
       });

@@ -8,7 +8,7 @@ use App\Mail\NewLeadToAdmin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 
 class LeadController extends Controller
 {

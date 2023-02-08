@@ -52,8 +52,7 @@
 export default {
     data() {
         return {
-            hasErrors: false,
-            errors: [],
+            errors: null,
             name: '',
             email: '',
             newsletter: true,
@@ -64,11 +63,11 @@ export default {
         resetForm() {
             this.name = '';
             this.email = '';
-            this.newsletter = '';
+            this.newsletter = true;
             this.message = '';
         },
         submitData() {
-            this.hasErrors = false;
+            this.errors = null;
             axios.post('/api/leads', {
                 name: this.name,
                 email: this.email,
@@ -80,7 +79,6 @@ export default {
                         this.resetForm();
                         console.log(response.data);
                     } else {
-                        this.hasErrors = true;
                         this.errors = response.data.errors;
                     }
                     });
